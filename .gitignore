@@ -4,3 +4,5 @@ node_modules
 babel_cache
 npm-debug.log
 cypress/screenshots
+
+src/static/js/bundle.js
