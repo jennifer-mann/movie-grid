@@ -2,12 +2,12 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
 import Layout from './components/Layout'
-import Main from './components/Main'
+import MoviesList from './components/MoviesList'
 import NotFoundPage from './components/NotFoundPage'
 
 const routes = (
   <Route path='/' component={Layout}>
-    <IndexRoute component={Main}/>
+    <IndexRoute component={MoviesList}/>
     <Route path='*' component={NotFoundPage}/>
   </Route>
 )
