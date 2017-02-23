@@ -1,0 +1,6 @@
+.DS_Store
+dist
+node_modules
+babel_cache
+npm-debug.log
+cypress/screenshots
