@@ -1,0 +1,9 @@
+html {
+  background-color: #1b1c1d;
+  color: white;
+}
+
+#app-container {
+  width: 1600px;
+  margin: 0 auto;
+}
