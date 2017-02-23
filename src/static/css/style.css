@@ -3,7 +3,29 @@ html {
   color: white;
 }
 
-#app-container {
-  width: 1600px;
+a {
+  color: #fff;
+}
+
+.app-container {
+  width: 1400px;
   margin: 0 auto;
 }
+
+.movie-posters {
+  overflow: auto;
+  clear: both;
+}
+
+.movie-posters li {
+  float: left;
+  list-style: none;
+  padding-left: 0;
+  width: 25%;
+  margin-bottom: 25px;
+}
+
+.movie-posters li img {
+  max-width: 300px;
+}
+
