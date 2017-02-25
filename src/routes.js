@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 
 import Layout from './components/Layout'
-import MoviesList from './components/MoviesList'
+import MoviesList from './movies/MoviesList'
 import NotFoundPage from './components/NotFoundPage'
 
 const routes = (
