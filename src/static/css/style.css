@@ -29,6 +29,11 @@ header {
   margin: 0 auto;
 }
 
+.app-content {
+  /*this helps displace content when displaying loading spinner*/
+  min-height: 500px
+}
+
 .movie-posters {
   overflow: visible;
   clear: both;
