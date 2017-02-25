@@ -4,8 +4,6 @@ describe('App', function(){
     cy
       .server()
       .fixture("movies").as("movies")
-
-
   })
 
   it('displays root route', function(){

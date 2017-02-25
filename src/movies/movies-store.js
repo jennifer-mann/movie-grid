@@ -8,8 +8,8 @@ class Movies {
   @observable totalPages
   @observable page
 
-  @action getMovies (options = {}) {
-    return api.getMovies(options)
+  @action getMovies (page) {
+    return api.getMovies(page)
     .then(action('got:movies', (response) => {
       this.movies = _.map(response.results, (movie) => {
         return new Movie(movie)

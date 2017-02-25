@@ -19,39 +19,67 @@ export default class MoviesList extends React.Component {
   }
 
   componentWillMount () {
-    moviesStore.getMovies()
+    this._getMovies()
+
+    $(window).on("scroll", () => {
+      var scrollHeight = $(document).height()
+      var scrollPosition = $(window).height() + $(window).scrollTop()
+      if ((scrollHeight - scrollPosition) / scrollHeight === 0) {
+        if (this.state.page >= this.state.totalPages) return null
+
+        this._loadMore()
+      }
+    })
+  }
+
+  _getMovies = (page) => {
+    moviesStore.getMovies(page)
     .then((response) => {
       this.setState({
-        movies: response.movies,
         totalPages: response.totalPages,
         page: response.page,
       })
+
+      if (!this.state.movies) {
+        this.setState({
+          movies: Array.from(response.movies)
+        })
+      } else {
+        this.setState({
+          movies: (this.state.movies).concat(Array.from(response.movies))
+        })
+      }
       return null
     })
+
     .catch((err) => {
       console.log(err)
       return null
     })
   }
 
-  render() {
+
+  _loadMore = () => {
+    this._getMovies(this.state.page + 1)
+  }
+
+  render () {
     if (!this.state.movies) return <Loader />
 
     return (
-      <div>
-        <ul className='movie-posters'>
-          {
-            this.state.movies.map((movie) => (
-              <Movie
-                key={movie.id}
-                {...movie}
-              />
-            ))
-          }
-        </ul>
-      </div>
+      <ul className='movie-posters'>
+        {
+          this.state.movies.map((movie) => (
+            <Movie
+              key={movie.id}
+              {...movie}
+            />
+          ))
+        }
+      </ul>
     )
   }
+
 
 
 }
